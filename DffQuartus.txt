@@ -1,0 +1,22 @@
+module RisingEdge_DFlipFlop(D,clk,Q);
+
+	input D, clk;
+	output Q;
+	always @(posedge clk)
+	begin
+	Q <=D;
+	end 
+endmodule
+
+module RisingEdge_DFlipFlopSyncReset(D, clk, syncReset, Q);
+
+	input D, clk, syncReset;
+	output reg Q;
+	always @(posedge clk)
+	begin	
+		if(syncReset == 1'b1)
+		Q == 0'b0;
+		else
+		Q <= D;
+	end
+endmodule

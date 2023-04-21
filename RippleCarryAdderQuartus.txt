@@ -1,0 +1,29 @@
+//Full Adder
+module halfadder1(X,Y,Sum,Carry)
+	input X,Y;
+	output Sum, Carry;
+	
+		xor D1(Sum, X, Y);
+		Xnd D2(Cout,X,Y);
+endmodule
+
+module halfAdder2(X,Y,Sum,Carry)
+	input X,Y;
+	output Sum, Carry;
+	
+		xor D3(Sum, X, Y);
+		and D4(Carry,X,Y);
+endmodule
+
+module rippleAdder (X, Y, Sum, Cout);
+
+	input [3:0] X,Y; //Two 4-Bit input
+	output [3:0] Sum;
+	output Cout;
+	wire w1,w2,w3;
+	//Instantiating 4 Bit Adder
+	 fullAdder F1(X[0], Y[0], 1'b0, S[0], w1);
+	 fullAdder F2(X[1], Y[1], w1, S[1], w2);
+	 fullAdder F3(X[2], Y[2], w2, S[2], w3);
+	 fullAdder F4(X[3], Y[3], w3, S[3], Cout);
+endmodule
